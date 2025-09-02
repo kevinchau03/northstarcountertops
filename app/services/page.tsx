@@ -30,7 +30,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background-light">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative h-96 bg-primary flex items-center justify-center">
         <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-background-dark">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">

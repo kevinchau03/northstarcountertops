@@ -13,7 +13,7 @@ const Navigation = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <img src="/northstar_logo.jpg" alt="Northstar Logo" className="h-10 w-10 rounded-sm" />
-              <span className="ml-2 text-2xl font-bold text-gray-900">Northstar Countertops</span>
+              <span className="ml-2 text-2xl font-bold text-primary">Northstar Countertops</span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center md:space-x-8">
