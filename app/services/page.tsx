@@ -37,7 +37,7 @@ export default function ServicesPage() {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Services</h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto">
-            For our chefs at home – quality comes first. We're dedicated to creating quality marble and granite countertops for the amazing chefs in Newmarket.
+            For our chefs at home - quality comes first. We&apos;re dedicated to creating quality marble and granite countertops for the amazing chefs in Newmarket.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function ServicesPage() {
             Ready to Start Your Project?
           </h2>
           <p className="text-lg mb-8 opacity-90">
-            Contact us today for a free consultation and quote. We're dedicated to serving the amazing chefs of Newmarket with quality countertops that are just the right fit.
+            Contact us today for a free consultation and quote. We&apos;re dedicated to serving the amazing chefs of Newmarket with quality countertops that are just the right fit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

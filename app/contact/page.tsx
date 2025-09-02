@@ -6,7 +6,7 @@ export default function ContactPage() {
     <main className="container mx-auto px-4 py-16 max-w-3xl">
       <h1 className="text-4xl font-semibold mb-6">Request a Quote</h1>
       <p className="text-neutral-600 mb-8">
-        Tell us a bit about your project and we'll get back within 1-2 business days.
+        Tell us a bit about your project and we &apos;ll get back within 1-2 business days.
       </p>
 
       <form
