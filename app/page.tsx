@@ -1,103 +1,126 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      <main>
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-center justify-center">
+          <Image
+            src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop"
+            alt="Modern kitchen with marble countertop"
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+          />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative z-10 text-center text-white px-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Exquisite Marble Countertops
+            </h1>
+            <p className="text-lg md:text-xl mb-8">
+              Transforming homes with timeless elegance and durability.
+            </p>
+            <Link
+              href="#contact"
+              className="bg-primary text-white py-3 px-8 rounded-lg text-lg hover:bg-opacity-50 transition-colors"
+            >
+              Get a Free Quote
+            </Link>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* Featured Work Section */}
+        <section id="featured-work" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Our Featured Work
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="group relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1583845112123-b1e9a4c43a2a?q=80&w=1974&auto=format&fit=crop"
+                  alt="Kitchen countertop"
+                  width={500}
+                  height={500}
+                  className="rounded-lg object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                  <p className="text-white text-xl font-bold">Modern Kitchen</p>
+                </div>
+              </div>
+              <div className="group relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2070&auto=format&fit=crop"
+                  alt="Bathroom vanity"
+                  width={500}
+                  height={500}
+                  className="rounded-lg object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                  <p className="text-white text-xl font-bold">Luxury Bathroom</p>
+                </div>
+              </div>
+              <div className="group relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2070&auto=format&fit=crop"
+                  alt="Island countertop"
+                  width={500}
+                  height={500}
+                  className="rounded-lg object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+                  <p className="text-white text-xl font-bold">Kitchen Island</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Quick List */}
+        <section id="services" className="py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="p-8 border border-gray-200 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Consultation</h3>
+                <p className="text-gray-600">
+                  We help you choose the perfect marble for your space and budget.
+                </p>
+              </div>
+              <div className="p-8 border border-gray-200 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Fabrication</h3>
+                <p className="text-gray-600">
+                  Custom cutting and shaping of your selected marble slabs.
+                </p>
+              </div>
+              <div className="p-8 border border-gray-200 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Installation</h3>
+                <p className="text-gray-600">
+                  Professional and clean installation by our expert team.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section id="contact" className="bg-stone-700 text-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <h2 className="text-3xl font-bold mb-4">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-lg mb-8">
+              Contact us today for a free, no-obligation quote.
+            </p>
+            <Link
+              href="mailto:contact@northstarcountertops.com"
+              className="bg-white text-stone-700 py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition-colors"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
   );
 }
