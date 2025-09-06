@@ -74,7 +74,7 @@ export default function GalleryPage() {
               Ready to Start?
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's Create Your Dream Project
+              Let&apos;s Create Your Dream Project
             </h2>
             <p className="text-xl mb-10 text-white/90 leading-relaxed">
               Get inspired by our work and let us transform your space with premium countertops.
