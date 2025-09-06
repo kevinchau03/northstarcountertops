@@ -156,7 +156,7 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                    <p className="text-gray-700">We'll contact you within 24 hours</p>
+                    <p className="text-gray-700">We&apos;ll contact you within 24 hours</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>

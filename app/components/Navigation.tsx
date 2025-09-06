@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,14 +28,15 @@ const Navigation = () => {
             ? 'bg-white/95 backdrop-blur-xl shadow-xl border border-border/20 h-14' 
             : 'bg-white/80 backdrop-blur-lg shadow-lg h-16'
         } px-6`}>
-          <div className="flex-shrink-0 mr-4">
+          <div className="flex-shrink-0">
             <Link href="/" className="block group">
-              <img 
-                src="/northstar_logo.jpg" 
-                alt="Northstar Logo" 
-                className={`rounded-lg transition-all duration-300 group-hover:scale-110 ${
-                  isScrolled ? 'h-8 w-8' : 'h-10 w-10'
-                }`} 
+              <Image
+                src="/northstar_logo.jpg"
+                alt="Northstar Logo"
+                width={isScrolled ? 32 : 40}
+                height={isScrolled ? 32 : 40}
+                className="rounded-lg transition-all duration-300 group-hover:scale-110"
+                priority
               />
             </Link>
           </div>

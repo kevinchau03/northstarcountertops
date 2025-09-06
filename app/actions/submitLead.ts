@@ -104,12 +104,9 @@ export async function submitLead(formData: FormData): Promise<SubmitResult> {
         return { ok: false, error: "Submission failed. Please check your details." };
       }
       // else retry on 5xx/network
-    } catch (err) {
-      clearTimeout(t);
-      // retry once on network/timeout
-      if (i === 1) {
-        return { ok: false, error: "Network error while submitting. Please try again." };
-      }
+    } catch (_err) {
+      console.error("Error submitting form:", _err);
+      return { ok: false, error: "Network error. Please try again." };
     }
     // small backoff
     await new Promise((r) => setTimeout(r, 300));
