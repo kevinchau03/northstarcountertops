@@ -202,7 +202,7 @@ export default function PrivacyPage() {
               <section className="border-t border-border/20 pt-8">
                 <h2 className="text-xl font-bold text-secondary mb-4">Changes to This Policy</h2>
                 <p className="text-gray-700 leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. Your continued use of our services after any changes constitutes acceptance of the updated policy.
+                  We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date. Your continued use of our services after any changes constitutes acceptance of the updated policy.
                 </p>
               </section>
             </div>
