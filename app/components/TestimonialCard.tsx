@@ -9,7 +9,7 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ imageUrl, name, date, review }: TestimonialCardProps) {
   return (
-    <div className="w-full bg-secondary rounded-xl shadow-lg overflow-hidden p-6 flex flex-col gap-4">
+    <div className="w-full bg-primary rounded-xl shadow-lg overflow-hidden p-6 flex flex-col gap-4">
       {/* Top: Avatar + Name/Date */}
       <div className="flex items-center">
         <Image

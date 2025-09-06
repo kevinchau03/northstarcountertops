@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="mt-auto bg-background-dark">
+        <footer className="mt-auto bg-bg">
             <div className="container mx-auto">
                 <div className="flex flex-col items-center text-center lg:justify-between w-full p-6 lg:flex-row gap-4">
                     {/* Left side - Copyright and Links */}
