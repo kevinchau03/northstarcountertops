@@ -28,7 +28,7 @@ const Navigation = () => {
             ? 'bg-white/95 backdrop-blur-xl shadow-xl border border-border/20 h-14' 
             : 'bg-white/80 backdrop-blur-lg shadow-lg h-16'
         } px-6`}>
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 mr-6">
             <Link href="/" className="block group">
               <Image
                 src="/northstar_logo.jpg"
