@@ -4,19 +4,99 @@ import { submitLead } from "@/app/actions/submitLead";
 import { useRef, useState } from "react";
 import Link from "next/link";
 
+interface ValidationErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+}
+
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
   const formRef = useRef<HTMLFormElement>(null);
+
+  // Validation functions
+  const validateName = (name: string): string | undefined => {
+    if (!name.trim()) return "Name is required";
+    if (name.trim().length < 2) return "Name must be at least 2 characters";
+    if (name.trim().length > 100) return "Name must be less than 100 characters";
+    if (!/^[a-zA-Z\s'-]+$/.test(name.trim())) return "Name can only contain letters, spaces, hyphens, and apostrophes";
+    return undefined;
+  };
+
+  const validateEmail = (email: string): string | undefined => {
+    if (!email.trim()) return "Email is required";
+    if (!email.includes("@")) return "Email must contain @ symbol";
+    if (email.length > 254) return "Email is too long";
+    // More comprehensive email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    if (!emailRegex.test(email)) return "Please enter a valid email address";
+    return undefined;
+  };
+
+  const validatePhone = (phone: string): string | undefined => {
+    if (!phone.trim()) return undefined; // Phone is optional
+    // Remove all non-digit characters for validation
+    const digitsOnly = phone.replace(/\D/g, "");
+    if (digitsOnly.length < 10) return "Phone number must be at least 10 digits";
+    if (digitsOnly.length > 15) return "Phone number is too long";
+    // Basic North American phone number format validation
+    const phoneRegex = /^[\+]?[1]?[\s\-\(\)]?[0-9]{3}[\s\-\(\)]?[0-9]{3}[\s\-]?[0-9]{4}$/;
+    if (!phoneRegex.test(phone.trim())) return "Please enter a valid phone number (e.g., (416) 356-8269)";
+    return undefined;
+  };
+
+  const validateMessage = (message: string): string | undefined => {
+    if (!message.trim()) return "Project details are required";
+    if (message.trim().length < 10) return "Please provide more details (at least 10 characters)";
+    if (message.trim().length > 2000) return "Project details must be less than 2000 characters";
+    return undefined;
+  };
+
+  const validateForm = (formData: FormData): ValidationErrors => {
+    const errors: ValidationErrors = {};
+    
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const message = formData.get("message") as string;
+
+    const nameError = validateName(name);
+    if (nameError) errors.name = nameError;
+
+    const emailError = validateEmail(email);
+    if (emailError) errors.email = emailError;
+
+    const phoneError = validatePhone(phone);
+    if (phoneError) errors.phone = phoneError;
+
+    const messageError = validateMessage(message);
+    if (messageError) errors.message = messageError;
+
+    return errors;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission
     setIsSubmitting(true);
     setError(null);
+    setValidationErrors({});
 
     try {
       const formData = new FormData(e.currentTarget);
+      
+      // Validate form data
+      const errors = validateForm(formData);
+      
+      if (Object.keys(errors).length > 0) {
+        setValidationErrors(errors);
+        setIsSubmitting(false);
+        return;
+      }
+
       const res = await submitLead(formData);
       if (res?.ok) {
         setIsSubmitted(true);
@@ -51,6 +131,7 @@ export default function ContactPage() {
                 setIsSubmitted(false);
                 setIsSubmitting(false);
                 setError(null);
+                setValidationErrors({});
               }}
               className="bg-primary hover:bg-primary-600 text-white rounded-xl py-4 px-8 font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
@@ -189,9 +270,25 @@ export default function ContactPage() {
                       autoComplete="name"
                       minLength={2}
                       maxLength={100}
-                      className="w-full border-2 border-border rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-surface/30 hover:bg-surface/50"
+                      className={`w-full border-2 rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 transition-all duration-300 bg-surface/30 hover:bg-surface/50 ${
+                        validationErrors.name
+                          ? "border-red-500 focus:ring-red-200 focus:border-red-500"
+                          : "border-border focus:ring-primary/20 focus:border-primary"
+                      }`}
                       disabled={isSubmitting}
+                      onBlur={(e) => {
+                        const error = validateName(e.target.value);
+                        setValidationErrors(prev => ({ ...prev, name: error }));
+                      }}
                     />
+                    {validationErrors.name && (
+                      <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        {validationErrors.name}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold mb-2 text-secondary">
@@ -205,9 +302,25 @@ export default function ContactPage() {
                       autoComplete="email"
                       placeholder="Enter your email"
                       maxLength={254}
-                      className="w-full border-2 border-border rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-surface/30 hover:bg-surface/50"
+                      className={`w-full border-2 rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 transition-all duration-300 bg-surface/30 hover:bg-surface/50 ${
+                        validationErrors.email
+                          ? "border-red-500 focus:ring-red-200 focus:border-red-500"
+                          : "border-border focus:ring-primary/20 focus:border-primary"
+                      }`}
                       disabled={isSubmitting}
+                      onBlur={(e) => {
+                        const error = validateEmail(e.target.value);
+                        setValidationErrors(prev => ({ ...prev, email: error }));
+                      }}
                     />
+                    {validationErrors.email && (
+                      <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        {validationErrors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -219,12 +332,29 @@ export default function ContactPage() {
                     <input
                       id="phone"
                       name="phone"
-                      placeholder="Enter your phone number"
+                      type="tel"
+                      placeholder="(416) 356-8269"
                       autoComplete="tel"
                       maxLength={32}
-                      className="w-full border-2 border-border rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 bg-surface/30 hover:bg-surface/50"
+                      className={`w-full border-2 rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 transition-all duration-300 bg-surface/30 hover:bg-surface/50 ${
+                        validationErrors.phone
+                          ? "border-red-500 focus:ring-red-200 focus:border-red-500"
+                          : "border-border focus:ring-primary/20 focus:border-primary"
+                      }`}
                       disabled={isSubmitting}
+                      onBlur={(e) => {
+                        const error = validatePhone(e.target.value);
+                        setValidationErrors(prev => ({ ...prev, phone: error }));
+                      }}
                     />
+                    {validationErrors.phone && (
+                      <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        {validationErrors.phone}
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label htmlFor="projectType" className="block text-sm font-semibold mb-2 text-secondary">
@@ -250,12 +380,28 @@ export default function ContactPage() {
                     name="message"
                     required
                     placeholder="Tell us about your project, dimensions, material preferences, timeline, etc."
-                    minLength={5}
+                    minLength={10}
                     maxLength={2000}
                     rows={4}
-                    className="w-full border-2 border-border rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 resize-vertical bg-surface/30 hover:bg-surface/50"
+                    className={`w-full border-2 rounded-xl p-4 text-secondary focus:outline-none focus:ring-2 transition-all duration-300 resize-vertical bg-surface/30 hover:bg-surface/50 ${
+                      validationErrors.message
+                        ? "border-red-500 focus:ring-red-200 focus:border-red-500"
+                        : "border-border focus:ring-primary/20 focus:border-primary"
+                    }`}
                     disabled={isSubmitting}
+                    onBlur={(e) => {
+                      const error = validateMessage(e.target.value);
+                      setValidationErrors(prev => ({ ...prev, message: error }));
+                    }}
                   />
+                  {validationErrors.message && (
+                    <p className="text-red-600 text-sm mt-1 flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      {validationErrors.message}
+                    </p>
+                  )}
                 </div>
 
                 {/* Privacy Notice */}
