@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import TestimonialCard from "./components/TestimonialCard";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
   return (
@@ -183,60 +183,8 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-24 bg-surface">
-        <div className="container mx-auto px-4" id="testimonials">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wide uppercase text-sm">
-              Testimonials
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-secondary">
-              What Our Customers Say
-            </h2>
-            <p className="text-lg text-secondary/80 max-w-2xl mx-auto">
-              Don’t just take our word for it—hear from homeowners and businesses who love their new countertops.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col gap-8 md:col-span-2">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <TestimonialCard
-                  imageUrl="/defaultavatar.jpg"
-                  name="Kalesha Dyer"
-                  review={`I had a great experience with Northstar Countertops! The team was friendly, arrived right on time, and did a fantastic job with the installation. Everything was done efficiently and with great attention to detail. Highly recommend them if you're looking for quality service and professionalism!`}
-                  date="3 months ago"
-                />
-                <TestimonialCard
-                  imageUrl="/defaultavatar.jpg"
-                  name="Tom Valookaran"
-                  review="Heng did a fantastic job with my countertops, even after coming to measure three times as I changed my mind. He explained everything in detail and delivered exactly when promised. Great customer skills—highly recommend."
-                  date="10 months ago"
-                />
-              </div>
-
-              <TestimonialCard
-                imageUrl="/defaultavatar.jpg"
-                name="Kathleen Delaney"
-                review="Wonderful work, excellent communication, and left everything very clean. Highly recommended."
-                date="2 days ago"
-              />
-            </div>
-
-            <div className="md:col-span-1">
-              <TestimonialCard
-                imageUrl="/defaultavatar.jpg"
-                name="J Baptiste"
-                review={`We recently had our kitchen countertops replaced with quartz by Northstar Countertops, and the entire experience was excellent. From the initial consultation to installation, their team was professional, punctual, and detail-oriented. They helped us choose a beautiful quartz slab that fits our kitchen perfectly.
-
-        The installation was quick and clean — they even took away all the debris. The craftsmanship, especially the mitred edges and grain matching, was top-notch. We appreciated their transparency on pricing and timeline, and everything was delivered as promised.
-
-        Highly recommend Northstar if you're looking for quality workmanship and reliable service for a countertop upgrade.`}
-                date="2 months ago"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+        <Testimonials />
+        </section>
 
 
       {/* CTA Section */}
