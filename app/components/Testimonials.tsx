@@ -92,7 +92,7 @@ export default function Testimonials() {
               </div>
             ) : (
               <p className="text-gray-600">
-                We're working to load our latest reviews. Please check back soon!
+                We&apos;re working to load our latest reviews. Please check back soon!
               </p>
             )}
           </div>
@@ -115,7 +115,7 @@ export default function Testimonials() {
             What Our Customers Say
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Don't just take our word for it. See what our satisfied customers have to say about their experience with Northstar Countertops.
+            Don&apos;t just take our word for it. See what our satisfied customers have to say about their experience with Northstar Countertops.
           </p>
           
           {/* Overall Rating Display */}
