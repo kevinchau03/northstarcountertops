@@ -1,18 +1,18 @@
 import Image from 'next/image';
 
 interface TestimonialCardProps {
-  authorName: string;
-  authorPhotoUrl?: string;
+  author_name: string;
+  profile_photo_url?: string;
   rating: number;
-  relativeTimeDescription: string;
+  relative_time_description: string;
   text: string;
 }
 
 export default function TestimonialCard({ 
-  authorName, 
-  authorPhotoUrl, 
+  author_name, 
+  profile_photo_url, 
   rating, 
-  relativeTimeDescription, 
+  relative_time_description, 
   text 
 }: TestimonialCardProps) {
   // Generate star rating display
@@ -29,10 +29,10 @@ export default function TestimonialCard({
       {/* Top: Avatar + Name/Date */}
       <div className="flex items-center">
         <div className="relative">
-          {authorPhotoUrl ? (
+          {profile_photo_url ? (
             <Image
-              src={authorPhotoUrl}
-              alt={authorName}
+              src={profile_photo_url}
+              alt={author_name}
               width={48}
               height={48}
               className="rounded-full border-2 border-gray-200"
@@ -45,20 +45,20 @@ export default function TestimonialCard({
           ) : null}
           {/* Fallback avatar with initials */}
           <div 
-            className={`${authorPhotoUrl ? 'absolute inset-0' : ''} w-12 h-12 bg-primary/10 rounded-full border-2 border-gray-200 flex items-center justify-center`}
-            style={{ display: authorPhotoUrl ? 'none' : 'flex' }}
+            className={`${profile_photo_url ? 'absolute inset-0' : ''} w-12 h-12 bg-primary/10 rounded-full border-2 border-gray-200 flex items-center justify-center`}
+            style={{ display: profile_photo_url ? 'none' : 'flex' }}
           >
             <span className="text-primary font-semibold text-lg">
-              {authorName.split(' ').map(name => name[0]).join('').slice(0, 2).toUpperCase()}
+              {author_name.split(' ').map(name => name[0]).join('').slice(0, 2).toUpperCase()}
             </span>
           </div>
         </div>
         <div className="ml-4 flex-1">
-          <h3 className="text-lg font-semibold text-secondary">{authorName}</h3>
+          <h3 className="text-lg font-semibold text-secondary">{author_name}</h3>
           <div className="flex items-center gap-2 text-sm">
             <div className="flex">{renderStars(rating)}</div>
             <span className="text-gray-500">•</span>
-            <span className="text-gray-600">{relativeTimeDescription}</span>
+            <span className="text-gray-600">{relative_time_description}</span>
           </div>
         </div>
         {/* Google Logo */}

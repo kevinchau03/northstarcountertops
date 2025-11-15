@@ -5,10 +5,10 @@ import TestimonialCard from './TestimonialCard';
 import Link from 'next/link';
 
 interface GoogleReview {
-  authorName: string;
-  authorPhotoUrl?: string;
+  author_name: string;
+  profile_photo_url?: string;
   rating: number;
-  relativeTimeDescription: string;
+  relative_time_description: string;
   text: string;
 }
 
@@ -162,10 +162,10 @@ export default function Testimonials() {
             {reviews.map((review, index) => (
               <TestimonialCard
                 key={index}
-                authorName={review.authorName}
-                authorPhotoUrl={review.authorPhotoUrl}
+                author_name={review.author_name}
+                profile_photo_url={review.profile_photo_url}
                 rating={review.rating}
-                relativeTimeDescription={review.relativeTimeDescription}
+                relative_time_description={review.relative_time_description}
                 text={review.text}
               />
             ))}
@@ -186,29 +186,6 @@ export default function Testimonials() {
           </div>
         )}
 
-        {/* Call to Action */}
-        <div className="text-center bg-white rounded-2xl shadow-lg p-8 border border-border/20">
-          <h3 className="text-2xl font-bold text-secondary mb-4">
-            Ready to Join Our Satisfied Customers?
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Experience the quality and service that our customers rave about. Get your free quote today!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact"
-              className="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              Get Free Quote
-            </Link>
-            <Link 
-              href="/gallery"
-              className="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300"
-            >
-              View Our Work
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );
