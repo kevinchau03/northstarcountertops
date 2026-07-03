@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { serviceAreaSummary } from "../lib/serviceAreas";
 
 export default function AboutPage() {
   return (
