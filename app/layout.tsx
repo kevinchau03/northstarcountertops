@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import { serviceAreas } from "./lib/serviceAreas";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Northstar Countertops",
-  description: "Your go-to source for high-quality countertops",
+  description: "Custom marble, quartz, and granite countertops serving Scarborough, Toronto, Markham, Durham Region, York Region, Peel Region, Burlington, and Hamilton.",
   openGraph: {
     title: "Northstar Countertops | Custom Marble & Quartz in Ontario",
-    description: "Luxury countertops and custom stonework for kitchens, bathrooms, and businesses. Serving Ontario with premium craftsmanship.",
+    description: "Luxury countertops and custom stonework for kitchens, bathrooms, and businesses across the GTA and Hamilton.",
     url: "https://northstarcountertops.ca",
     siteName: "Northstar Countertops",
     images: [
@@ -54,6 +55,15 @@ export default function RootLayout({
       },
       image: "https://northstarcountertops.ca/og-image.jpg",
       priceRange: "$$",
+      areaServed: serviceAreas.map((area) => ({
+        "@type": "City",
+        name: area,
+        address: {
+          "@type": "PostalAddress",
+          addressRegion: "ON",
+          addressCountry: "CA"
+        }
+      })),
       sameAs: [
         "https://www.facebook.com/NSCountertops/",
         "https://www.instagram.com/nscountertop/?hl=en"

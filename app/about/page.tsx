@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { serviceAreaSummary } from "../lib/serviceAreas";
 
 export default function AboutPage() {
   return (
@@ -17,7 +18,7 @@ export default function AboutPage() {
             <span className="block text-white/90">Countertops</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90">
-            Quality comes first - serving the amazing chefs of Newmarket with precision-crafted marble and granite countertops.
+            Quality comes first - serving homeowners across the GTA with precision-crafted marble and granite countertops.
           </p>
         </div>
       </section>
@@ -33,10 +34,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6">
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  For our chefs at home - quality comes first. Because we are dedicated to creating quality marble and granite countertops for the amazing chefs in Newmarket, our products are just the right fit.
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  This is our promise to our customers and a daily reminder to ourselves. We offer full service from choosing the right material for your new kitchen, creating your countertop to the exact measure, and installing your countertop.
+                  For our chefs at home - quality comes first. Because we are dedicated to creating quality marble and granite countertops for homeowners across the region, our products are just the right fit.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Our commitment to excellence means every project receives the attention and craftsmanship it deserves, ensuring your countertops are not just beautiful, but built to last.

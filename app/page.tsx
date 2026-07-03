@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ServiceAreas from "./components/ServiceAreas";
 import Testimonials from "./components/Testimonials";
 
 export default function Home() {
@@ -49,24 +50,24 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-secondary text-white relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/90"></div>
+      <section className="py-16 text-white relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-700"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">500+</div>
+              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">500+</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Projects Completed</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">15+</div>
+              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">15+</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Years Experience</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">100%</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Satisfaction Rate</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">24h</div>
+              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">24h</div>
               <div className="text-sm uppercase tracking-wide opacity-90">Response Time</div>
             </div>
           </div>
@@ -186,6 +187,7 @@ export default function Home() {
         <Testimonials />
         </section>
 
+      <ServiceAreas />
 
       {/* CTA Section */}
       <section id="contact" className="bg-gradient-to-br from-primary to-primary-700 text-white relative overflow-hidden">

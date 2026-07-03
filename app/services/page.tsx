@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import ServiceAreas from "../components/ServiceAreas";
+import { serviceAreaSummary } from "../lib/serviceAreas";
 
 export default function ServicesPage() {
   const services = [
@@ -44,7 +46,7 @@ export default function ServicesPage() {
             <span className="block text-white/90">Solutions</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90">
-            For our chefs at home - quality comes first. We&apos;re dedicated to creating quality marble and granite countertops for the amazing chefs in Newmarket.
+            For our chefs at home - quality comes first. We&apos;re dedicated to creating quality marble and granite countertops across the GTA.
           </p>
         </div>
       </section>
@@ -140,7 +142,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary to-primary-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
@@ -152,7 +153,7 @@ export default function ServicesPage() {
             Transform Your Kitchen Today
           </h2>
           <p className="text-xl mb-10 text-white/90 leading-relaxed">
-            Contact us today for a free consultation and quote. We&apos;re dedicated to serving the amazing chefs of Newmarket with quality countertops that are just the right fit.
+            Contact us today for a free consultation and quote. {serviceAreaSummary}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

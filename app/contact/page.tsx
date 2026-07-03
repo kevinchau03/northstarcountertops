@@ -1,6 +1,6 @@
 "use client";
 
-import { submitLead } from "@/app/actions/submitLead";
+import { submitLead } from "../actions/submitLead";
 import { useRef, useState } from "react";
 import Link from "next/link";
 
