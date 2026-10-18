@@ -2,52 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import ServiceAreas from "./components/ServiceAreas";
 import Testimonials from "./components/Testimonials";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
     <main className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/videos/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium tracking-wide uppercase">
-              Premium Stone Specialists
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Exquisite Marble
-            <span className="block text-primary-600 drop-shadow-lg">Countertops</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Transforming homes with timeless elegance, superior craftsmanship, and unmatched durability.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-primary hover:bg-primary-600 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
-            >
-              Get Free Quote
-            </Link>
-            <Link
-              href="/gallery"
-              className="border-2 border-white/30 hover:border-white text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 backdrop-blur-sm hover:bg-white/10"
-            >
-              View Our Work
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Stats Section */}
       <section className="py-16 text-white relative">
