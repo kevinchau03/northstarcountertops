@@ -33,7 +33,7 @@ export default function PrivacyPage() {
                 </h2>
                 <div className="text-gray-700 leading-relaxed space-y-4">
                   <p>
-                    Northstar Countertops operates northstarcountertop.ca in Ontario. This policy explains how we handle personal information collected through our website, inquiries, and countertop services. Our privacy practices are guided by the Personal Information Protection and Electronic Documents Act (PIPEDA) and other applicable Canadian laws.
+                    Northstar Countertops operates northstarcountertops.ca in Ontario. This policy explains how we handle personal information collected through our website, inquiries, and countertop services. Our privacy practices are guided by the Personal Information Protection and Electronic Documents Act (PIPEDA) and other applicable Canadian laws.
                   </p>
                   <p>
                     When you submit an inquiry, we use the information you provide to respond and help with your project. Simply browsing this website does not constitute consent to unrelated uses of your information. We explain new purposes and obtain additional consent where required by law.

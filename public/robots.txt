@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://northstarcountertop.ca
+Host: https://northstarcountertops.ca
 
 # Sitemaps
-Sitemap: https://northstarcountertop.ca/sitemap.xml
+Sitemap: https://northstarcountertops.ca/sitemap.xml
