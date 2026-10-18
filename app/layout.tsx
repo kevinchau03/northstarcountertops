@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Northstar Countertops | Custom Marble & Quartz in Ontario",
     description: "Luxury countertops and custom stonework for kitchens, bathrooms, and businesses across the GTA and Hamilton.",
-    url: "https://northstarcountertops.ca",
+    url: "https://northstarcountertop.ca",
     siteName: "Northstar Countertops",
     images: [
       {
-        url: "https://northstarcountertops.ca/og-image.jpg",
+        url: "https://northstarcountertop.ca/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Northstar Countertops showroom with marble table",
@@ -43,7 +43,7 @@ export default function RootLayout({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       name: "Northstar Countertops",
-      url: "https://northstarcountertops.ca",
+      url: "https://northstarcountertop.ca",
       telephone: "+1-416-356-8269",
       address: {
         "@type": "PostalAddress",
@@ -53,7 +53,7 @@ export default function RootLayout({
         postalCode: "M1R 3E4",
         addressCountry: "CA"
       },
-      image: "https://northstarcountertops.ca/og-image.jpg",
+      image: "https://northstarcountertop.ca/og-image.jpg",
       priceRange: "$$",
       areaServed: serviceAreas.map((area) => ({
         "@type": "City",

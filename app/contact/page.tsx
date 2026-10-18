@@ -407,7 +407,7 @@ export default function ContactPage() {
                 {/* Privacy Notice */}
                 <div className="bg-surface/30 rounded-xl p-4 border border-border/20">
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    By submitting this form, you agree to our{" "}
+                    We use your contact and project details to respond to your inquiry. Our service providers process your submission and technical information such as your IP address, browser information, and submission time to help us manage inquiries and prevent spam. See our{" "}
                     <Link 
                       href="/privacy" 
                       className="text-primary hover:text-primary-600 font-semibold underline"
@@ -415,7 +415,7 @@ export default function ContactPage() {
                     >
                       Privacy Policy
                     </Link>
-                    {" "}and consent to us contacting you about your project inquiry. We respect your privacy and will never share your information with third parties.
+                    {" "}for details about sharing, retention, and your choices. By submitting, you consent to this processing and to being contacted about your project. This does not subscribe you to marketing.
                   </p>
                 </div>
 

@@ -2,7 +2,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.northstarcountertops.ca";
+  const base = "https://northstarcountertop.ca";
   const lastModified = new Date();
 
   return [

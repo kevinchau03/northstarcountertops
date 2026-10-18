@@ -7,6 +7,6 @@ export default function robots() {
         allow: '/',
       },
     ],
-    sitemap: 'https://northstarcountertops.ca/sitemap.xml',
+    sitemap: 'https://northstarcountertop.ca/sitemap.xml',
   };
 }

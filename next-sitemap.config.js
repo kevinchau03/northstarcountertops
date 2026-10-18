@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.northstarcountertops.ca',
+  siteUrl: 'https://northstarcountertop.ca',
   generateRobotsTxt: true,
   outDir: './public',
 };
