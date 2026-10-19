@@ -1,3 +1,4 @@
+import Stats from "./components/Stats";
 import { pageMetadata } from "./lib/seo";
 
 export const metadata = pageMetadata("/");
@@ -13,135 +14,83 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
 
-      {/* Stats Section */}
-      <section className="py-16 text-white relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-700"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">500+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Projects Completed</div>
+      <Stats items={[
+  {
+    "value": "500+",
+    "label": "Projects completed"
+  },
+  {
+    "value": "15+",
+    "label": "Years of experience"
+  },
+  {
+    "value": "100%",
+    "label": "Satisfaction rate"
+  },
+  {
+    "value": "24h",
+    "label": "Response time"
+  }
+]} />
+
+      <section id="featured-work" className="home-work" aria-labelledby="featured-work-title">
+        <div className="home-section-shell">
+          <div className="home-section-heading">
+            <div>
+              <h2 id="featured-work-title">Featured Work</h2>
+              <p>Look at a few of our kitchen projects.</p>
             </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">15+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Years Experience</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">100%</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Satisfaction Rate</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-white group-hover:scale-110 transition-transform duration-300">24h</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Response Time</div>
-            </div>
+            <Link href="/gallery" className="home-text-link">Explore the project gallery</Link>
+          </div>
+          <div className="home-work-grid">
+            <figure className="home-project home-project--lead">
+              <div className="home-project-image">
+                <Image src="/images/IMG_6799.webp" alt="White kitchen island with a veined stone waterfall end and matching backsplash" fill sizes="(max-width: 767px) 100vw, 58vw" />
+              </div>
+              <figcaption><p>Waterfall island and matching backsplash</p></figcaption>
+            </figure>
+            <figure className="home-project">
+              <div className="home-project-image">
+                <Image src="/images/IMG_6995.webp" alt="White stone island and countertops contrasting with dark kitchen cabinetry" fill sizes="(max-width: 767px) 100vw, 38vw" />
+              </div>
+              <figcaption><p>Light countertops with dark cabinetry</p></figcaption>
+            </figure>
+            <figure className="home-project">
+              <div className="home-project-image">
+                <Image src="/images/IMG_5358.webp" alt="Bright kitchen with white stone countertops, a broad island, and pendant lighting" fill sizes="(max-width: 767px) 100vw, 38vw" />
+              </div>
+              <figcaption><p>A generous island at the heart of the kitchen</p></figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* Featured Work Section */}
-      <section id="featured-work" className="py-24 bg-bg">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wide uppercase text-sm">Portfolio</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-secondary">
-              Our Featured Work
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover the artistry and precision that goes into every project we complete
-            </p>
+      <section id="services" className="home-services" aria-labelledby="home-services-title">
+        <div className="home-section-shell home-services-layout">
+          <div className="home-services-intro">
+            <h2 id="home-services-title">Your space.<br />Our craft.</h2>
+            <p>From choosing your stone to fitting the final piece, we help bring your countertop project together.</p>
+            <div className="home-services-image">
+              <Image src="/images/IMG_8084.webp" alt="Installed white stone island and countertops in a kitchen with a black sink" fill sizes="(max-width: 767px) 100vw, 40vw" />
+            </div>
+            <Link href="/services" className="home-text-link">Explore our countertop services</Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1721824296360-6ad93a642fbb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop"
-                alt="Kitchen countertop"
-                width={500}
-                height={500}
-                className="rounded-2xl object-cover w-full h-80 group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Modern Kitchen</h3>
-                  <p className="text-sm opacity-90">Calacatta marble with waterfall edge</p>
-                </div>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2070&auto=format&fit=crop"
-                alt="Bathroom vanity"
-                width={500}
-                height={500}
-                className="rounded-2xl object-cover w-full h-80 group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Luxury Bathroom</h3>
-                  <p className="text-sm opacity-90">Carrara marble vanity top</p>
-                </div>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <Image
-                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2070&auto=format&fit=crop"
-                alt="Island countertop"
-                width={500}
-                height={500}
-                className="rounded-2xl object-cover w-full h-80 group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Kitchen Island</h3>
-                  <p className="text-sm opacity-90">Custom quartz with integrated seating</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-surface/50 to-white"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-primary font-semibold tracking-wide uppercase text-sm">Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-4 text-secondary">How We Work</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From concept to completion, we handle every step of your countertop journey
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group p-8 bg-white border-2 border-border hover:border-primary/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <span className="text-2xl text-primary">💡</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-secondary">Consultation</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We help you choose the perfect stone for your space, lifestyle, and budget with expert guidance.
-              </p>
-              <div className="mt-6 text-primary font-semibold">Step 1</div>
-            </div>
-            <div className="group p-8 bg-white border-2 border-border hover:border-primary/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 md:mt-8">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <span className="text-2xl text-primary">🔧</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-secondary">Fabrication</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Precision cutting and shaping of your selected slabs using state-of-the-art equipment.
-              </p>
-              <div className="mt-6 text-primary font-semibold">Step 2</div>
-            </div>
-            <div className="group p-8 bg-white border-2 border-border hover:border-primary/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <span className="text-2xl text-primary">✨</span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-secondary">Installation</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Professional and meticulous installation by our certified team with complete cleanup.
-              </p>
-              <div className="mt-6 text-primary font-semibold">Step 3</div>
-            </div>
+          <div className="home-services-detail">
+            <ol className="home-service-steps">
+              <li>
+                <span className="home-service-number" aria-hidden="true">01</span>
+                <div><h3>Choose the right stone</h3><p>Tell us about your space, how you use it, and your budget. We’ll help you compare marble, quartz, and granite, then work through the details.</p><p className="home-service-note">Material guidance, project planning, and a free quote</p></div>
+              </li>
+              <li>
+                <span className="home-service-number" aria-hidden="true">02</span>
+                <div><h3>Made to fit your space</h3><p>Your selected stone is measured, cut, and finished for your layout, with attention to edges, sink openings, and how each surface comes together.</p><p className="home-service-note">Measurements, fabrication, and edge finishing</p></div>
+              </li>
+              <li>
+                <span className="home-service-number" aria-hidden="true">03</span>
+                <div><h3>The finishing touch</h3><p>Our team installs your countertops and checks the fit and finish. Before we leave, we’ll walk you through caring for your new surfaces.</p><p className="home-service-note">Installation, final checks, and care guidance</p></div>
+              </li>
+            </ol>
+            <div className="home-services-cta"><p>Have a project in mind?</p><Link href="/contact" className="home-section-button">Get Free Quote</Link></div>
           </div>
         </div>
       </section>

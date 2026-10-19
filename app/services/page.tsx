@@ -3,6 +3,7 @@ import { pageMetadata } from "../lib/seo";
 export const metadata = pageMetadata("/services");
 
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 import Link from "next/link";
 import { serviceAreaSummary } from "../lib/serviceAreas";
 
@@ -35,24 +36,11 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-bg pt-24">
-      {/* Hero Section */}
-      <section className="relative h-[500px] bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium tracking-wide uppercase mb-6">
-            Our Services
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Complete Countertop
-            <span className="block text-white/90">Solutions</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90">
-            For our chefs at home - quality comes first. We&apos;re dedicated to creating quality marble and granite countertops across the GTA.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-bg">
+      <PageHero
+        title="Made for your space"
+        description="Countertop design, fabrication, and installation, with care at every step."
+      />
 
       {/* Services Grid */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-bg">

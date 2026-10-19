@@ -3,35 +3,16 @@ import { pageMetadata } from "../lib/seo";
 export const metadata = pageMetadata("/gallery");
 
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 import Link from "next/link";
 
 export default function GalleryPage() {
   return (
     <main className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center">
-        <Image
-          src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=2070&auto=format&fit=crop"
-          alt="Gallery of countertop projects"
-          layout="fill"
-          objectFit="cover"
-          className="z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium tracking-wide uppercase">
-              Our Portfolio
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Gallery
-          </h1>
-          <p className="text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Check out our latest works
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Our work, in detail"
+        description="Explore the countertops, islands, and finishing touches in our kitchen projects."
+      />
 
       {/* Gallery Section */}
       <section className="py-24 bg-bg">

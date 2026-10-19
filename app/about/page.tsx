@@ -1,30 +1,19 @@
+import Stats from "../components/Stats";
 import { pageMetadata } from "../lib/seo";
 
 export const metadata = pageMetadata("/about");
 
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-bg pt-24">
-      {/* Hero Section */}
-      <section className="relative h-[500px] bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium tracking-wide uppercase mb-6">
-            Our Story
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            About Northstar
-            <span className="block text-white/90">Countertops</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90">
-            Quality comes first - serving homeowners across the GTA with precision-crafted marble and granite countertops.
-          </p>
-        </div>
-      </section>
+    <div className="min-h-screen bg-bg">
+      <PageHero
+        title="About Northstar"
+        description="Bringing quality marble everywhere across the Greater Toronto Area."
+      />
 
       {/* Main About Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-bg">
@@ -37,7 +26,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6">
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  For our chefs at home - quality comes first. Because we are dedicated to creating quality marble and granite countertops for homeowners across the region, our products are just the right fit.
+                  We bring quality to your home kitchen. We help homeowners across the GTA to transform their kitchens.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Our commitment to excellence means every project receives the attention and craftsmanship it deserves, ensuring your countertops are not just beautiful, but built to last.
@@ -71,30 +60,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-secondary text-white relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary/90"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">15+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Years Experience</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">500+</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Happy Customers</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">100%</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Quality Guarantee</div>
-            </div>
-            <div className="group">
-              <div className="text-4xl font-bold mb-2 text-primary group-hover:scale-110 transition-transform duration-300">24h</div>
-              <div className="text-sm uppercase tracking-wide opacity-90">Response Time</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Stats items={[
+  {
+    "value": "15+",
+    "label": "Years of experience"
+  },
+  {
+    "value": "500+",
+    "label": "Happy customers"
+  },
+  {
+    "value": "100%",
+    "label": "Quality guarantee"
+  },
+  {
+    "value": "24h",
+    "label": "Response time"
+  }
+]} />
 
       {/* Values Section */}
       <section className="py-24 bg-surface">
