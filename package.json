@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "next": "16.2.10",
-    "next-sitemap": "^4.2.3",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "zod": "^4.1.5"

@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://northstarcountertops.ca
-
-# Sitemaps
-Sitemap: https://northstarcountertops.ca/sitemap.xml

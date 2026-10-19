@@ -1,3 +1,7 @@
+import { pageMetadata } from "../lib/seo";
+
+export const metadata = pageMetadata("/about");
+
 import Image from "next/image";
 import Link from "next/link";
 
